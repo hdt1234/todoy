@@ -1,12 +1,15 @@
 import React from 'react';
-import AppBar from './AppBar';
+import AppBarComponent from './AppBarComponent';
+import TabBar from './TabBar';
+
 
 class Home extends React.Component {
 
     render(){
         return(
             <div>
-                <AppBar />
+                <AppBarComponent />
+                <TabBar />
             </div>
         )
     }
