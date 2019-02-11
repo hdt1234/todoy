@@ -1,17 +1,18 @@
 import React from 'react';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
 import ExpandMore from '@material-ui/icons/ExpandMore'
+import Delete from '@material-ui/icons/Delete';
 import { connect } from 'react-redux';
-import { selectTodo, toggleTodo } from '../actions';
+import { selectTodo, toggleTodo, deleteTodo } from '../actions';
 
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-class TodoItem extends React.Component {
+class CompletedTodoItem extends React.Component {
 
     componentDidMount(){
     }
@@ -25,6 +26,10 @@ class TodoItem extends React.Component {
         this.props.dispatch(toggleTodo({id: this.props.id}));
     }
 
+    deletePressed(){
+        this.props.dispatch(deleteTodo({id: this.props.id}));
+    }
+
     render(){
         return (
             <Card style={{flexDirection: 'row', maxWidth: '100%'}}>
@@ -35,8 +40,11 @@ class TodoItem extends React.Component {
                     <Typography variant="h6" style={{marginRight: 'left', marginTop: 'auto'}} gutterBottom noWrap={true}>
                         {this.props.title}
                     </Typography>
-                    <IconButton aria-label="Check" style={{marginLeft: 'auto', marginTop: 'auto'}} onClick={()=>this.completeTodo()}>
-                        <Check />
+                    <IconButton aria-label="Clear" style={{marginLeft: 'auto', marginTop: 'auto'}} onClick={()=>this.completeTodo()}>
+                        <Clear />
+                    </IconButton>
+                    <IconButton aria-label="Delete" style={{marginLeft: 'auto', marginTop: 'auto'}} onClick={()=>this.deletePressed()}>
+                        <Delete />
                     </IconButton>
                 </CardContent>
                 <Collapse in={this.props.selected} timeout="auto" unmountOnExit>
@@ -55,4 +63,4 @@ const mapStateToProps = (state) => ({
     state
 });
 
-export default connect(mapStateToProps)(TodoItem);
+export default connect(mapStateToProps)(CompletedTodoItem);

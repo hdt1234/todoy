@@ -1,21 +1,17 @@
 import React from 'react';
 import List from '@material-ui/core/List';
-import TodoItem from './TodoItem';
 import { connect } from 'react-redux';
+import CompletedTodoItem from './CompletedTodoItem';
 
-class OnGoingTab extends React.Component {
 
-    componentDidMount(){
-        console.log(this.props);
-    }
-
+class CompletedTab extends React.Component {
     render(){
         return (
             <List>
                 {this.props.todo.map( n => {
-                    if(!n.isDone){
+                    if(n.isDone){
                         return (
-                            <TodoItem key = {n.id} id={n.id} title={n.title} selected={n.selected} isDone = {n.isDone} content={n.content}/>
+                            <CompletedTodoItem key = {n.id} id={n.id} title={n.title} selected={n.selected} isDone = {n.isDone} content={n.content}/>
                         )
                     }
                 })}
@@ -26,6 +22,6 @@ class OnGoingTab extends React.Component {
 
 const mapStateToProps = ({todo}) => ({
     todo
-});
+})
 
-export default connect(mapStateToProps)(OnGoingTab);
+export default connect(mapStateToProps)(CompletedTab);
