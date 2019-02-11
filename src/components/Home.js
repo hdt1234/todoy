@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBarComponent from './AppBarComponent';
 import TabBar from './TabBar';
-
+import AddTodoCard from './AddTodoCard';
 
 class Home extends React.Component {
 
@@ -10,13 +10,10 @@ class Home extends React.Component {
             <div>
                 <AppBarComponent />
                 <TabBar />
+                {/* <AddTodoCard /> */}
             </div>
         )
     }
-}
-
-const styles = {
-    
 }
 
 export default Home;
