@@ -27,8 +27,4 @@ const mapStateToProps = ({toggleDrawer}) => ({
     toggleDrawer
 });
 
-const mapDispatchToProps = ({toggleDrawer}) => ({
-    toggleDrawer
-});
-
 export default connect(mapStateToProps)(DrawerComponent);

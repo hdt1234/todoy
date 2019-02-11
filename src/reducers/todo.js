@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, SELECT_TODO } from '../actions';
 
 const initialState = [];
 
@@ -15,6 +15,10 @@ export default function(state = initialState, action){
         case TOGGLE_TODO:
             return state.map(todo =>
                 todo.id === action.id ? { ...todo, isDone: !todo.isDone } : todo
+            );
+        case SELECT_TODO:
+            return state.map(todo => 
+                todo.id === action.payload.id ? { ...todo, selected: !todo.selected} : todo
             );
         default:
             return state;

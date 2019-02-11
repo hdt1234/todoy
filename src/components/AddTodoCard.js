@@ -47,13 +47,6 @@ class AddTodoCard extends React.Component {
     }
 }
 
-const styles = {
-    main: {
-        width: '40%',
-        height: '40%'
-    }
-}
-
 const mapStateToProps = ({todo}) => ({
     todo
 })
