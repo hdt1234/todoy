@@ -5,6 +5,7 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 export const TOGGLE_ADD = "TOGGLE_ADD";
 export const SELECT_TODO = "SELECT_TODO";
 export const DELETE_TODO = "DELETE_TODO";
+export const LOAD_TODO = "LOAD_TODO";
 
 export const toggleDrawer = ({
     type: TOGGLE_DRAWER
@@ -36,5 +37,10 @@ export const selectTodo = (todo) => ({
 
 export const deleteTodo = (todo) => ({
     type: DELETE_TODO,
+    payload: todo
+})
+
+export const loadTodo = (todo) => ({
+    type: LOAD_TODO,
     payload: todo
 })

@@ -7,7 +7,7 @@ import { tabSelected } from '../actions';
 class TabBar extends React.Component {
 
     componentDidMount(){
-        console.log(this.props);
+
     }
 
     handleChange = (event, value) => {

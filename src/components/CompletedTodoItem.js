@@ -37,13 +37,13 @@ class CompletedTodoItem extends React.Component {
                     <IconButton aria-label="ExpandMore" style={{marginRight: 'auto', marginTop: 'auto'}} onClick={()=>this.setSelected()}>
                         <ExpandMore />
                     </IconButton>
-                    <Typography variant="h6" style={{marginRight: 'left', marginTop: 'auto'}} gutterBottom noWrap={true}>
+                    <Typography variant="h6" style={{marginRight: 'left', marginTop: 'auto', flexGrow: 1}} gutterBottom noWrap={true}>
                         {this.props.title}
                     </Typography>
                     <IconButton aria-label="Clear" style={{marginLeft: 'auto', marginTop: 'auto'}} onClick={()=>this.completeTodo()}>
                         <Clear />
                     </IconButton>
-                    <IconButton aria-label="Delete" style={{marginLeft: 'auto', marginTop: 'auto'}} onClick={()=>this.deletePressed()}>
+                    <IconButton aria-label="Delete" style={{marginRight: 'auto', marginTop: 'auto'}} onClick={()=>this.deletePressed()}>
                         <Delete />
                     </IconButton>
                 </CardContent>

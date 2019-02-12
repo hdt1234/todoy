@@ -1,8 +1,9 @@
 const electron = require("electron");
+const DataStore = require("nedb");
+const path = require("path");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-const path = require("path");
 const isDev = require("electron-is-dev");
 
 let mainWindow;
@@ -21,6 +22,13 @@ function createWindow() {
   );
   mainWindow.on("closed", () => (mainWindow = null));
 }
+
+
+var todos = new DataStore({filename: path.join(app.getPath("userData"),"todos.db"), autoload: true});
+todos.ensureIndex({fieldName: 'id', unique: true});
+app.db = todos;
+
+
 
 app.on("ready", createWindow);
 

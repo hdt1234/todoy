@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 class Home extends React.Component {
 
     componentDidMount(){
-        console.log(this.props);
         this.renderTab = this.renderTab.bind(this);
     }
 

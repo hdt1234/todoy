@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SELECT_TODO, DELETE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, SELECT_TODO, DELETE_TODO, LOAD_TODO } from '../actions';
 
 const initialState = [];
 
@@ -22,6 +22,14 @@ export default function(state = initialState, action){
             );
         case DELETE_TODO:
             return state.filter(todo => todo.id !== action.payload.id);
+        case LOAD_TODO:
+            return [...state, {
+                id: action.payload.id,
+                content: action.payload.content,
+                selected: false,
+                isDone: action.payload.isDone,
+                title: action.payload.title
+            }]
         default:
             return state;
     }

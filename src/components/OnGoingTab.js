@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class OnGoingTab extends React.Component {
 
     componentDidMount(){
-        console.log(this.props);
+
     }
 
     render(){
