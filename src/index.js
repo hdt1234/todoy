@@ -21,6 +21,7 @@ todos.find({}, (error, doc)=>{
 });
 
 store.subscribe(()=>{
+    console.log(app.getPath("userData"));
     todos.find({}, (err, doc)=>{
         doc.map(el => {
             if(store.getState().todo.find(o => o.id === el.id) === undefined){
